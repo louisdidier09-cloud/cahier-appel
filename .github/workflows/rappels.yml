@@ -1,0 +1,21 @@
+name: Rappels votes
+on:
+  schedule:
+    - cron: '0 17 * * 3,5'
+  workflow_dispatch:
+jobs:
+  rappel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Installer
+        working-directory: scripts
+        run: npm install
+      - name: Envoyer les rappels
+        working-directory: scripts
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: node rappels.js
