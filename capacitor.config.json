@@ -1,0 +1,7 @@
+{
+  "appId": "fr.club.cahierappel",
+  "appName": "Cahier d'appel",
+  "webDir": "www",
+  "android": { "useLegacyBridge": true },
+  "plugins": { "CapacitorHttp": { "enabled": true } }
+}
